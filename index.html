@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauteng Provincial Treasury | Official Portal</title>
+    <style>
+        :root {
+            --primary-gold: #c59b27;
+            --primary-navy: #002B49;
+            --dark-blue: #001A2D;
+            --light-bg: #F8FAFC;
+            --card-border: #E2E8F0;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Top Government Bar */
+        .top-bar {
+            background-color: var(--dark-blue);
+            color: #FFFFFF;
+            padding: 8px 5%;
+            font-size: 0.85rem;
+            display: flex;
+            justify: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary-gold);
+        }
+
+        .top-bar span {
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Header */
+        header {
+            background-color: #FFFFFF;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .crest-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-navy), var(--dark-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: 2px solid var(--primary-gold);
+        }
+
+        .brand-text h1 {
+            font-size: 1.25rem;
+            color: var(--primary-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .brand-text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-navy);
+            background-color: #F1F5F9;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(0, 43, 73, 0.9), rgba(0, 26, 45, 0.95)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #FFFFFF;
+            padding: 80px 5%;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            color: #FFFFFF;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 30px auto;
+            color: #E2E8F0;
+        }
+
+        .cta-btn {
+            background-color: var(--primary-gold);
+            color: var(--dark-blue);
+            padding: 12px 28px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 6px;
+            display: inline-block;
+            transition: background 0.2s;
+        }
+
+        .cta-btn:hover {
+            background-color: #d8aa2b;
+        }
+
+        /* Quick Portals Grid */
+        .main-container {
+            padding: 50px 5%;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--primary-navy);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-gold);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 25px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--primary-gold);
+        }
+
+        .card h3 {
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            color: var(--primary-navy);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.88rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: #94A3B8;
+            padding: 40px 5% 20px 5%;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #FFFFFF;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 8px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col a {
+            color: #94A3B8;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #1E293B;
+            padding-top: 20px;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <div class="top-bar">
+        <span>GAUTENG PROVINCIAL GOVERNMENT &bull; REPUBLIC OF SOUTH AFRICA</span>
+        <span>GPG Treasury Official Portal</span>
+    </div>
+
+    <!-- Main Header -->
+    <header>
+        <div class="logo-area">
+            <div class="crest-icon">GPT</div>
+            <div class="brand-text">
+                <h1>Gauteng Provincial Treasury</h1>
+                <p>Promoting Good Governance & Financial Accountability</p>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Tenders & Bids</a></li>
+                <li><a href="#">Publications</a></li>
+                <li><a href="#">Financial Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Transparent & Accountable Financial Management</h2>
+        <p>Serving Gauteng through strategic resource allocation, public procurement oversight, and sustainable financial governance.</p>
+        <a href="#portals" class="cta-btn">Access Open Tender Portal</a>
+    </section>
+
+    <!-- Main Services Content -->
+    <main class="main-container" id="portals">
+        <h2 class="section-title">Key Portals & Services</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Open Tender Bulletin</h3>
+                <p>Access active procurement opportunities, advertised bids, awarded contracts, and supplier compliance guides.</p>
+                <a href="#">View Tenders &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Provincial Budgets</h3>
+                <p>Explore official provincial budget speeches, annual estimates of revenue & expenditure, and financial statements.</p>
+                <a href="#">Download Budgets &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Supplier Registration</h3>
+                <p>Guidelines for municipal and provincial supplier registration, CSD compliance, and procurement guidelines.</p>
+
+                <a href="#">Register as Supplier &rarr;</a>
+            </div>
+            <div class="card">
+                <h3>Public Finance Governance</h3>
+                <p>Policy frameworks, Municipal Finance Management (MFMA), and Treasury Circulars for provincial departments.</p>
+                <a href="#">Read Governance Guides &rarr;</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Gauteng Treasury</h4>
+                <p>75 Fox Street, Marshalltown, Johannesburg, 2001</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Open Tender Portal</a></li>
+                    <li><a href="#">Annual Reports</a></li>
+                    <li><a href="#">Careers & Vacancies</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Supplier Helpline</a></li>
+                    <li><a href="#">Ethics Hotline</a></li>
+                    <li><a href="#">PAIA Requests</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Gauteng Provincial Treasury. All rights reserved. Built as a free static HTML layout.
+        </div>
+    </footer>
+
+</body>
+</html>
